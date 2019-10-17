@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@bloomreach/spa-sdk": "^14.0",
+    "axios": "^0.19",
     "core-js": "^3.3",
     "vue": "^2.6",
     "vue-class-component": "^7.0",
