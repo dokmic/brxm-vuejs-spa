@@ -1,21 +1,64 @@
 <template>
   <div id="app" class="d-flex flex-column">
-    <header>
-      <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-dark" role="navigation">
-        <div class="container">
-          <div class="collapse navbar-collapse" />
-        </div>
-      </nav>
-    </header>
-    <section class="container pt-3" />
-    <footer class="bg-dark text-light py-3">
-      <div class="container clearfix">
-        <div class="float-left pr-3">&copy; Bloomreach</div>
-        <div class="overflow-hidden" />
-      </div>
-    </footer>
+    <br-page :config="config">
+      <template v-slot:default="slotProps">
+        <header>
+          <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-dark" role="navigation">
+            <div class="container">
+              <router-link :to="slotProps.page.getUrl('/')" class="navbar-brand">
+                {{ slotProps.page.getTitle() || 'brXM + Vue.js = ♥' }}
+              </router-link>
+              <div class="collapse navbar-collapse" />
+            </div>
+          </nav>
+        </header>
+        <section class="container pt-3" />
+        <footer class="bg-dark text-light py-3">
+          <div class="container clearfix">
+            <div class="float-left pr-3">&copy; Bloomreach</div>
+            <div class="overflow-hidden" />
+          </div>
+        </footer>
+      </template>
+    </br-page>
   </div>
 </template>
+
+<script lang="ts">
+import axios from 'axios';
+import { Configuration } from '@bloomreach/spa-sdk';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Route } from 'vue-router';
+
+@Component({
+  data: () => ({
+    config: {
+      httpClient: axios.request,
+      options: {
+        live: {
+          cmsBaseUrl: process.env.VUE_APP_LIVE_BR_BASE_URL!,
+          spaBaseUrl: process.env.VUE_APP_LIVE_SPA_BASE_URL,
+        },
+        preview: {
+          cmsBaseUrl: process.env.VUE_APP_PREVIEW_BR_BASE_URL!,
+          spaBaseUrl: process.env.VUE_APP_PREVIEW_SPA_BASE_URL,
+        },
+      },
+      request: {},
+    },
+  }),
+})
+export default class App extends Vue {
+  config!: Configuration;
+
+  $route!: Route;
+
+  @Watch('$route', { immediate: true, deep: true })
+  navigate() {
+    this.$set(this.config, 'request', { path: this.$route.fullPath });
+  }
+}
+</script>
 
 <style>
 #app {
