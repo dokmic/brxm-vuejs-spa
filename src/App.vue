@@ -8,15 +8,21 @@
               <router-link :to="slotProps.page.getUrl('/')" class="navbar-brand">
                 {{ slotProps.page.getTitle() || 'brXM + Vue.js = ♥' }}
               </router-link>
-              <div class="collapse navbar-collapse" />
+              <div class="collapse navbar-collapse">
+                <br-component path="menu" />
+              </div>
             </div>
           </nav>
         </header>
-        <section class="container pt-3" />
+        <section class="container pt-3">
+          <br-component path="main" />
+        </section>
         <footer class="bg-dark text-light py-3">
           <div class="container clearfix">
             <div class="float-left pr-3">&copy; Bloomreach</div>
-            <div class="overflow-hidden" />
+            <div class="overflow-hidden">
+              <br-component path="footer" />
+            </div>
           </div>
         </footer>
       </template>

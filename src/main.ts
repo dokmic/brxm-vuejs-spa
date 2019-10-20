@@ -4,7 +4,7 @@ import Vue from 'vue';
 import VueFragment from 'vue-fragment';
 
 import App from './App.vue';
-import { BrPage } from './brxm';
+import { BrComponent, BrPage } from './brxm';
 import router from './router';
 
 axios.interceptors.request.use(config => ({ ...config, withCredentials: true }));
@@ -12,6 +12,7 @@ axios.interceptors.request.use(config => ({ ...config, withCredentials: true }))
 Vue.use(VueFragment.Plugin);
 Vue.config.productionTip = false;
 
+Vue.component('br-component', BrComponent);
 Vue.component('br-page', BrPage);
 
 new Vue({
