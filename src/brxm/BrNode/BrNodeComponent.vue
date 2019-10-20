@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <br-meta :meta="component.getMeta()">
     <slot>
       <div v-if="isContainerItem(component)" />
 
@@ -14,14 +14,16 @@
         v-for="(component, key) in component.getChildren()" :key="key"
         :component="component" />
     </slot>
-  </div>
+  </br-meta>
 </template>
 
 <script lang="ts">
 import { Component as SpaComponent, isContainerItem, isContainer } from '@bloomreach/spa-sdk';
 import { Component, Prop, Provide, Vue } from 'vue-property-decorator';
+import BrMeta from '../BrMeta.vue';
 
 @Component({
+  components: { BrMeta },
   methods: {
     isContainerItem,
     isContainer,
