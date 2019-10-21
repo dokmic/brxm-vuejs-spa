@@ -1,7 +1,7 @@
 <template>
   <br-meta :meta="component.getMeta()">
     <slot>
-      <div v-if="isContainerItem(component)" />
+      <br-node-container-item v-if="isContainerItem(component)" :container-item="component" />
 
       <div v-else-if="isContainer(component)">
         <br-node-component
@@ -21,9 +21,13 @@
 import { Component as SpaComponent, isContainerItem, isContainer } from '@bloomreach/spa-sdk';
 import { Component, Prop, Provide, Vue } from 'vue-property-decorator';
 import BrMeta from '../BrMeta.vue';
+import BrNodeContainerItem from './BrNodeContainerItem.vue';
 
 @Component({
-  components: { BrMeta },
+  components: {
+    BrMeta,
+    BrNodeContainerItem,
+  },
   methods: {
     isContainerItem,
     isContainer,
