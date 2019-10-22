@@ -3,11 +3,11 @@
     <slot>
       <br-node-container-item v-if="isContainerItem(component)" :container-item="component" />
 
-      <div v-else-if="isContainer(component)">
+      <br-node-container v-else-if="isContainer(component)" :container="component">
         <br-node-component
           v-for="(component, key) in component.getChildren()" :key="key"
           :component="component" />
-      </div>
+      </br-node-container>
 
       <br-node-component
         v-else
@@ -22,11 +22,13 @@ import { Component as SpaComponent, isContainerItem, isContainer } from '@bloomr
 import { Component, Prop, Provide, Vue } from 'vue-property-decorator';
 import BrMeta from '../BrMeta.vue';
 import BrNodeContainerItem from './BrNodeContainerItem.vue';
+import BrNodeContainer from './BrNodeContainer.vue';
 
 @Component({
   components: {
     BrMeta,
     BrNodeContainerItem,
+    BrNodeContainer,
   },
   methods: {
     isContainerItem,
