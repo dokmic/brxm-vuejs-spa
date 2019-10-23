@@ -1,7 +1,7 @@
 <template>
-  <div v-if="container.getType() === TYPE_CONTAINER_INLINE">
+  <br-container-inline v-if="container.getType() === TYPE_CONTAINER_INLINE">
     <slot />
-  </div>
+  </br-container-inline>
 
   <div v-else-if="container.getType() === TYPE_CONTAINER_NO_MARKUP">
     <slot />
@@ -30,9 +30,13 @@ import {
 } from '@bloomreach/spa-sdk';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import BrContainerBox from '../BrContainer/BrContainerBox.vue';
+import BrContainerInline from '../BrContainer/BrContainerInline.vue';
 
 @Component({
-  components: { BrContainerBox },
+  components: {
+    BrContainerBox,
+    BrContainerInline,
+  },
   data: () => ({
     TYPE_CONTAINER_INLINE,
     TYPE_CONTAINER_NO_MARKUP,
