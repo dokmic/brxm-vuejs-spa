@@ -15,9 +15,9 @@
     <slot />
   </div>
 
-  <div v-else>
+  <br-container-box v-else>
     <slot />
-  </div>
+  </br-container-box>
 </template>
 
 <script lang="ts">
@@ -29,8 +29,10 @@ import {
   TYPE_CONTAINER_UNORDERED_LIST,
 } from '@bloomreach/spa-sdk';
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import BrContainerBox from '../BrContainer/BrContainerBox.vue';
 
 @Component({
+  components: { BrContainerBox },
   data: () => ({
     TYPE_CONTAINER_INLINE,
     TYPE_CONTAINER_NO_MARKUP,
