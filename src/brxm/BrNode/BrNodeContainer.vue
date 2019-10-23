@@ -7,9 +7,9 @@
     <slot />
   </br-container-no-markup>
 
-  <div v-else-if="container.getType() === TYPE_CONTAINER_ORDERED_LIST">
+  <br-container-ordered-list v-else-if="container.getType() === TYPE_CONTAINER_ORDERED_LIST">
     <slot />
-  </div>
+  </br-container-ordered-list>
 
   <div v-else-if="container.getType() === TYPE_CONTAINER_UNORDERED_LIST">
     <slot />
@@ -32,12 +32,14 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import BrContainerBox from '../BrContainer/BrContainerBox.vue';
 import BrContainerInline from '../BrContainer/BrContainerInline.vue';
 import BrContainerNoMarkup from '../BrContainer/BrContainerNoMarkup.vue';
+import BrContainerOrderedList from '../BrContainer/BrContainerOrderedList.vue';
 
 @Component({
   components: {
     BrContainerBox,
     BrContainerInline,
     BrContainerNoMarkup,
+    BrContainerOrderedList,
   },
   data: () => ({
     TYPE_CONTAINER_INLINE,
