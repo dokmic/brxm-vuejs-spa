@@ -11,9 +11,9 @@
     <slot />
   </br-container-ordered-list>
 
-  <div v-else-if="container.getType() === TYPE_CONTAINER_UNORDERED_LIST">
+  <br-container-unordered-list v-else-if="container.getType() === TYPE_CONTAINER_UNORDERED_LIST">
     <slot />
-  </div>
+  </br-container-unordered-list>
 
   <br-container-box v-else>
     <slot />
@@ -33,6 +33,7 @@ import BrContainerBox from '../BrContainer/BrContainerBox.vue';
 import BrContainerInline from '../BrContainer/BrContainerInline.vue';
 import BrContainerNoMarkup from '../BrContainer/BrContainerNoMarkup.vue';
 import BrContainerOrderedList from '../BrContainer/BrContainerOrderedList.vue';
+import BrContainerUnorderedList from '../BrContainer/BrContainerUnorderedList.vue';
 
 @Component({
   components: {
@@ -40,6 +41,7 @@ import BrContainerOrderedList from '../BrContainer/BrContainerOrderedList.vue';
     BrContainerInline,
     BrContainerNoMarkup,
     BrContainerOrderedList,
+    BrContainerUnorderedList,
   },
   data: () => ({
     TYPE_CONTAINER_INLINE,
