@@ -7,6 +7,8 @@ import App from './App.vue';
 import { BrComponent, BrManageContentButton, BrManageMenuButton, BrPage } from './brxm';
 import router from './router';
 
+import BrBanner from './components/BrBanner.vue';
+
 axios.interceptors.request.use(config => ({ ...config, withCredentials: true }));
 
 Vue.use(VueFragment.Plugin);
@@ -16,6 +18,8 @@ Vue.component('br-component', BrComponent);
 Vue.component('br-manage-content-button', BrManageContentButton);
 Vue.component('br-manage-menu-button', BrManageMenuButton);
 Vue.component('br-page', BrPage);
+
+Vue.component('br-banner', BrBanner);
 
 new Vue({
   router,
