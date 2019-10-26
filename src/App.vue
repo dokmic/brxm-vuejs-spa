@@ -9,7 +9,11 @@
                 {{ slotProps.page.getTitle() || 'brXM + Vue.js = ♥' }}
               </router-link>
               <div class="collapse navbar-collapse">
-                <br-component path="menu" />
+                <br-component path="menu">
+                  <template v-slot:default="slotProps">
+                    <br-menu :component="slotProps.component" :page="slotProps.page" />
+                  </template>
+                </br-component>
               </div>
             </div>
           </nav>
