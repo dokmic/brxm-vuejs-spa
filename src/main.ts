@@ -8,6 +8,7 @@ import { BrComponent, BrManageContentButton, BrManageMenuButton, BrPage } from '
 import router from './router';
 
 import BrBanner from './components/BrBanner.vue';
+import BrContent from './components/BrContent.vue';
 
 axios.interceptors.request.use(config => ({ ...config, withCredentials: true }));
 
@@ -20,6 +21,7 @@ Vue.component('br-manage-menu-button', BrManageMenuButton);
 Vue.component('br-page', BrPage);
 
 Vue.component('br-banner', BrBanner);
+Vue.component('br-content', BrContent);
 
 new Vue({
   router,
