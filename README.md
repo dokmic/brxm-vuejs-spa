@@ -20,7 +20,7 @@ BASE_URL=/site/spa-csr
 In the same `.env` file, also specify the brXM instance to fetch the page model from:
 ```
 VUE_APP_LIVE_BR_BASE_URL=http://localhost:8080/site/spa-csr
-VUE_APP_LIVE_SPA_BASE_URL=/site/spa-csr
+VUE_APP_LIVE_SPA_BASE_URL=
 VUE_APP_PREVIEW_BR_BASE_URL=http://localhost:8080/site/_cmsinternal/spa-csr
 VUE_APP_PREVIEW_SPA_BASE_URL=/site/_cmsinternal/spa-csr?bloomreach-preview=true
 ```
