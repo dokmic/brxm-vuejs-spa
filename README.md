@@ -2,6 +2,10 @@
 Example Vue.js SPA using the Bloomreach Experience [SPA SDK](https://www.npmjs.com/package/@bloomreach/spa-sdk).
 The app is created using [Vue CLI](https://cli.vuejs.org/).
 
+> This project was transformed into the official [Vue.js SDK](https://www.npmjs.com/package/@bloomreach/vue-sdk) for Bloomreach Experience.<br>
+> Please do not use the project as a reference since it may be outdated or contain some security issues.<br>
+> You can find the latest Vue.js example in the [Bloomreach Experience repository](https://github.com/bloomreach/brxm/releases).
+
 ## brXM setup
 First configure the brXM instance with the [Standard Delivery Tier Components](https://documentation.bloomreach.com/library/setup/hst-components/overview.html).
 
